@@ -1,0 +1,430 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #000;
+    /* Dark background default */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- HEADER --- */
+header {
+    width: 100%;
+    padding: 20px;
+    color: aliceblue;
+    text-align: center;
+    background: #0a0a0a;
+    border-bottom: 1px solid #1a651a;
+}
+
+.logo-img {
+    width: 110px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    height: 70px;
+    background: #0f0e0e;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #000;
+}
+
+.nav-brand {
+    font-size: 24px;
+    background: linear-gradient(to right, white 55%, lime 45%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-user-section {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.users-profile {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid #0cbd99;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.tokens {
+    background: #434e51;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* --- LINKS --- */
+.links-container {
+    display: flex;
+    list-style: none;
+    height: 100%;
+}
+
+.links-container li {
+    height: 100%;
+    width: 100px;
+  
+}
+
+.links-container a {
+    text-decoration: none;
+    color: #d6ddd7;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.links-container li:hover {
+    background-color: #203d4a;
+}
+
+.active-links {
+    border-bottom: 3px solid rgb(11, 180, 45);
+    border-radius: 5px;
+}
+
+/* --- MAIN SECTION --- */
+section.main-content {
+    flex: 1;
+    /* Para itulak ang footer pababa */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    gap: 40px;
+    background: linear-gradient(to bottom, #000000, #0a2e0a);
+}
+
+.contents-wrap {
+    width: 300px;
+    height: 350px;
+    background-color: #000;
+    border-radius: 15px;
+    border: 3px solid #188356;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.contents-wrap:hover {
+    box-shadow: 0 0 30px rgba(43, 237, 33, 0.4);
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+
+.card-img {
+    width: 250px;
+    height: 170px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid #06a76c;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+/* Background images setup */
+.giveaways {
+    background: url('images/logo.png') no-repeat center/cover;
+}
+
+.trading {
+    background: url('images/logo.png') no-repeat center/cover;
+}
+
+.sales {
+    background: url('images/logo.png') no-repeat center/cover;
+}
+
+.card-img p {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    font-family: cursive;
+    border-top: 2px solid #268a4b;
+}
+
+.p-tag-j {
+    color: #05da6f;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #1a651a;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+#slidebar-active {
+    display: none;
+}
+
+.open-sidebar-button,
+.close-sidebar-button {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .open-sidebar-button {
+        display: block;
+        cursor: pointer;
+    }
+
+    .links-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background: #000;
+        flex-direction: column;
+        z-index: 1000;
+        transition: 0.4s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .links-container li {
+        width: 100%;
+        height: 70px;
+        display: flex;
+        margin-right: auto;
+    }
+
+    .links-container a {
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 20px 30px;
+        justify-content: flex-start;
+        transition: 0.3s;
+}
+
+    .close-sidebar-button {
+        display: block;
+        padding: 20px;
+        cursor: pointer;
+    }
+
+    #slidebar-active:checked~.links-container {
+        right: 0;
+    }
+
+    #slidebar-active:checked~#overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+    }
+}
+
+/*giveaways.html design*/
+.GiveawaysDiv-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 60px;
+    height: auto;
+}
+
+.Giveaways-div {
+    display: flex;
+    margin: 20px;
+    height: 300px;
+    width: 300px;
+    background: black;
+    border: 2px solid rgb(8, 165, 8);
+    border-radius: 15px;
+    position: relative;
+    flex-direction: column;
+    place-content: center;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+.entries-tickets {
+    display: flex;
+    width: auto;
+    gap: 7rem;
+    place-content: center;
+    align-items: center;
+}
+
+.Giveaways-div #EnterTicket-btn {
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: linear-gradient(to right, rgba(17, 213, 3, 0.745), rgba(6, 232, 149, 0.864));
+    transition: 1s;
+    color: white;
+    font-weight: bold;
+}
+
+.Giveaways-div #EnterTicket-btn:hover {
+    background: linear-gradient(to left, rgba(17, 213, 3, 0.745), rgba(6, 232, 149, 0.864));
+}
+
+#Entries-btn {
+    cursor: pointer;
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 1px 7.5px;
+    margin-left: 5px;
+    border-radius: 100%;
+}
+
+.Giveaways-div label {
+    color: white;
+}
+
+#tickets {
+    background: gray;
+    display: flex;
+    place-content: center;
+    border: 1px solid white;
+    height: 25px;
+    width: 60px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.fruit-img {
+    border-radius: 10px;
+    border: 3px solid rgb(8, 170, 124);
+    height: 150px;
+    width: 150px;
+}
+
+#ticketseller-bg {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    display: none;
+    place-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, black, rgb(5, 72, 5));
+    position: absolute;
+    z-index: 1;
+
+}
+
+.ticketseller-div {
+    height: 290px;
+    width: 300px;
+    position: relative;
+    border-radius: 10px;
+    background: #000000;
+    display: flex;
+    place-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid rgb(11, 154, 11);
+    color: white;
+}
+
+.counter {
+    width: auto;
+    height: 100px;
+    display: flex;
+    place-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+#counter,
+#Gems {
+    text-align: center;
+    align-self: center;
+    place-content: center;
+    width: 70px;
+    height: 50px;
+    border: 2px solid rgba(16, 173, 4, 0.723);
+    border-radius: 20px;
+    color: white;
+    background: linear-gradient(-170deg, rgb(9, 34, 77), rgb(41, 72, 102), rgb(10, 47, 78));
+}
+
+#Subtract-btn,
+#add-btn {
+    height: 25px;
+    width: 40px;
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(35, 165, 70);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#Submit-btn {
+    height: auto;
+    padding: 5px 35px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    background: linear-gradient(to bottom, lime, rgba(9, 142, 102, 0.704));
+    transition: 3s;
+}
+
+#Submit-btn:hover {
+    background: linear-gradient(to top, lime, rgba(9, 142, 102, 0.704));
+    ;
+}
+
+.closeTseller-btn {
+    background: none;
+    color: white;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
