@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameBlox | Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <header class="header">
+        <img src="images/bloxlogo.png" alt="bloxFruit-logo" class="logo-img">
+        <h3>The Grand Line Exchange: Trade, Buy & Win</h3>
+        <p>Your one-stop shop for safe trading, affordable sales, and weekly fruit giveaways.</p>
+    </header>
+
+    <nav>
+        <h1 class="nav-brand">GameBlox</h1>
+        
+        <div class="nav-user-section">
+            <div class="users-profile"></div>
+            <div class="tokens"><p>100m</p></div>
+        </div>
+
+        <input type="checkbox" id="slidebar-active">
+
+        <label for="slidebar-active" class="open-sidebar-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#c9c9c9"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+        </label>
+
+        <label id="overlay" for="slidebar-active"></label>
+
+        <ul class="links-container">
+            <label for="slidebar-active" class="close-sidebar-button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#c9c9c9"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </label>
+            <li><a href="home.html" class="active-links">Home</a></li>
+            <li><a href="Giveaways.html">Giveaways</a></li>
+            <li><a href="Trading.html">Trading</a></li>
+            <li><a href="Sale.html">Sale</a></li>
+            <li><a href="Contacts.html">Contacts</a></li>
+        </ul>
+    </nav>
+
+    <section class="main-content">
+        <div class="contents-wrap" onclick="window.location.href='Giveaways.html'">
+            <div class="card-img giveaways">
+                <p>Giveaways</p>
+            </div>
+            <p class="p-tag-j">Join now</p>
+        </div>
+
+        <div class="contents-wrap" onclick="window.location.href='Trading.html'">
+            <div class="card-img trading">
+                <p>Trading</p>
+            </div>
+            <p class="p-tag-j">Join now</p>
+        </div>
+
+        <div class="contents-wrap" onclick="window.location.href='Sale.html'">
+            <div class="card-img sales">
+                <p>Sales</p>
+            </div>
+            <p class="p-tag-j">Join now</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Created by LadsArt. Powered by Nectre.</p>
+    </footer>
+
+</body>
+</html>

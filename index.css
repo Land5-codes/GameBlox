@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:url(images/indexImage.jpeg) no-repeat center/cover;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+}
+
+section {
+    display: flex;
+    flex-direction: column; /* Stack nav and content */
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    
+}
+footer{
+        color: white;
+        width: 100%;
+        height: 100px;
+        background: rgb(0, 0, 0);
+        text-align: center;
+        place-content: center;
+    }
+
+/* --- The Main Overlay Fix --- */
+#login-signIn {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: none; /* Controlled by JS */
+    position: fixed; /* Changed to fixed so it stays over everything */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    background: rgba(2, 20, 42, 0.98); /* Near solid dark blue */
+    z-index: 999; /* Keeps it on top of the nav */
+}
+
+/* --- Navigation Styles --- */
+section nav {
+    backdrop-filter: blur(10px);
+    background: linear-gradient(to left,rgba(68, 255, 6, 0.212),rgba(47, 199, 9, 0.527));
+    color: white;
+    border: 1px solid white;
+    max-width: 100%;
+    width: 90%;
+    height: 60px;
+    margin-top: 20px;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+svg {
+    cursor: pointer;
+}
+
+#Openbtn {
+    background: none;
+    color: white;
+    font-size: 14px;
+    margin-left: auto;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#slash {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+
+/* --- Game List Popup --- */
+#gamelist {
+    max-width: 100%;
+    top: 70px; /* Positioned below nav */
+    left: 17px;
+    width: 150px;
+    height: 150px;
+    display: none;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(13, 45, 107);
+    color: white;
+    position: absolute;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    
+}
+
+#gamelist a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#closeGamesBtn {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    
+}
+
+
+/* --- Login/Signup Form Styles --- */
+.buttons {
+    height: 50px;
+    border-top: 2px solid lime;
+    background-color: #000;
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px 15px 0 0; /* Rounded top only */
+}
+
+#login-btn, #CreateAcc-btn {
+    width: 170px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    color: #888;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* This is what changes when you click the buttons */
+.active-tab {
+    background: #00ff6e !important;
+    color: black !important;
+    border-radius: 10px;
+}
+
+#login-div, #SignUp-div {
+    width: 450px;
+}
+
+#login-div form, #SignUp-div form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0;
+    width: 100%;
+    background: linear-gradient(to bottom, black, black, rgb(1, 32, 17));
+    border-radius: 0 0 15px 15px;
+    border-bottom: 2px solid lime;
+}
+
+.closeLogIn {
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+label {
+    align-self: flex-start;
+    margin-top: 20px;
+    margin-left: 75px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+input {
+    height: 40px;
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #333;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    transition: .35s ease-in;
+}
+
+input:focus {
+    border-bottom: 2px solid lime;
+    box-shadow: 0 5px 10px rgba(0, 255, 0, 0.1);
+}
+
+#Login, #SignUp {
+    margin-top: 10px;
+    padding: 12px 60px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(to bottom, rgb(10, 154, 77), rgb(38, 220, 114));
+}
+
+#login-div p {
+    margin: 25px 0;
+    color: #666;
+}
+
+.password-wrapper {
+    position: relative;
+    width: 300px;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.toggle-eye {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.forgot-pass {
+    text-decoration: none;
+    color: lime;
+    font-size: 12px;
+    align-self: flex-start;
+    margin-left: 75px;
+    margin-bottom: 20px;
+}
+
+.svg-icon-div {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.logo{
+    height: 200px;
+    width: auto;
+    backdrop-filter: blur(5px);
+    display: flex;
+    place-content: center;
+    align-items: center ;
+    border-radius: 15px;
+    margin-top: 15px;
+    animation: 3s box ease-in-out infinite;
+}
+.logo img{
+    height: 250px;
+    animation: 3s up linear infinite;
+}
+
+@keyframes box{
+    0%{
+        box-shadow: 0 0 1px lime;
+    }
+    50%{
+        box-shadow: 0 0 30px lime;
+    }
+    100%{
+        box-shadow: 0 0 1px lime;
+    }
+}
+@keyframes up{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-5px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+    .contact-info{
+        border-top:2px solid #10872a;
+       background: black;
+        height: 150px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        place-content: center;
+        align-items: center;
+        border-bottom: 2px solid rgb(10, 167, 10);
+    }
+    .contact-icon{
+        display: flex;
+        place-content: center;
+        align-items: center;
+        width: 250px;
+        gap: 50px;
+    }
+    .contact-info p{
+        color: white;
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+    .steps-div{
+        font-family: sans-serif;
+        font-weight: bold;
+        position: relative;
+        max-width: 90%;
+        width: 390px;
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+        border-top: 5px solid rgba(0, 0, 0, 0.978);
+        padding: 0 10px;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 3px solid rgba(1, 18, 1, 0.978);
+        margin: 15px;
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+    }
+    .steps-div li{
+        color: white;
+        margin: 15px;
+    }
+    .steps-div h2{
+        text-align: center;
+        color: white;
+        margin: 15px;
+    }
